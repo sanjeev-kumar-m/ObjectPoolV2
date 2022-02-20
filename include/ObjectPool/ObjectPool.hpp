@@ -52,7 +52,7 @@ namespace sys {
       }
       ObjectType* retval = reinterpret_cast<ObjectType*>(_m_object_ptr);
       _m_object_ptr = _m_object_ptr->next;
-      new ObjectType(std::forward<__args>...);
+      new(retval) ObjectType(std::forward<__args>...);
       return retval;
     }
 
